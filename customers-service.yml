@@ -24,7 +24,7 @@ spring:
 eureka:
   instance:
     # enable to register multiple app instances with a random server port
-    instance-id: ${spring.application.name}:${random.uuid}
+    # instance-id: ${spring.application.name}:${random.uuid}
 #     instance-id: customers-service_1
     prefer-ip-address: true
   client: 
