@@ -1,0 +1,23 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application: 
+    name: vets-service
+vets:
+  cache:
+    ttl: 60
+    heap-size: 100
+eureka:
+  instance:
+    # enable to register multiple app instances with a random server port
+    instance-id: ${spring.application.name}:${random.uuid}
+    prefer-ip-address: true
+  client: 
+    service-url: 
+#       defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://172.16.24.195:8761/eureka/
+#       defaultZone: http://47.99.138.113:8761/eureka/

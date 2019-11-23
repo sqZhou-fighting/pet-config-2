@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application: 
+    name: api-gateway
+
+zuul:
+  prefix: /api
+  ignoredServices: '*'
+  routes:
+    # vets.serviceId: vets-service
+    # vets.path: /vet/**
+    # visits.serviceId: visits-service
+    # visits.path: /visit/**
+    # customers.serviceId: customers-service
+    # customers.path: /customer/**
+    # api.serviceId: api-gateway
+    # api.path: /gateway/**
+    vets-service: /vet/**
+    visits-service: /visit/**
+    customers-service: /customer/**
+    api-gateway: /gateway/**
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json,text/css,application/javascript
+    min-response-size: 2048
+
+# Internationalization
+spring.messages.basename: messages/messages
+
+eureka: 
+  client: 
+    service-url: 
+#       defaultZone: http://localhost:8761/eureka/ 
+      defaultZone: http://172.16.24.195:8761/eureka/
+  instance:
+    instance-id: softeng-node002
+    prefer-ip-address: true

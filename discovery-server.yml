@@ -1,0 +1,23 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application: 
+    name: discovery
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+#    hostname: 172.16.24.195
+#     hostname: 47.99.138.113
+  # standalone mode
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
