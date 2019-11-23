@@ -5,6 +5,18 @@
 ---
 # server:
 #   port: 8001
+server: 
+  compression:
+    enabled: true
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: justpwd
+    key-store-type: PKCS12
+    protocol: TLSv1.2
+    key-alias: undertow
+  http2:
+    enabled: true
 spring:
   profiles: dev
   application: 
