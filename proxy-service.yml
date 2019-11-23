@@ -24,6 +24,7 @@ server:
     
 eureka:
   instance:
+    instance-id: proxy
     prefer-ip-address: true
   client:
 #    register-with-eureka: false
